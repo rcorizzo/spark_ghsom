@@ -1,0 +1,4 @@
+NUMERIC|sepalLength|(4.3,7.9)
+NUMERIC|sepalWidth|(2.0,4.4)
+NUMERIC|petalLength|(1.0,6.9)
+NUMERIC|petalWidth|(0.1,2.5)

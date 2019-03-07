@@ -1,0 +1,227 @@
+package com.sparkghsom.main.model
+
+import com.sparkghsom.main.datatypes.DoubleDimension
+import com.sparkghsom.main.datatypes.DimensionType
+import com.sparkghsom.main.ghsom_mixed.Instance
+import com.sparkghsom.main.utils.Constants
+
+class Contact (
+  val caseid : String, 
+  val dage  : Option[DoubleDimension] = None,
+  val dancstry1  : Option[DoubleDimension] = None,
+  val dancstry2  : Option[DoubleDimension] = None,
+  val ddepart  : Option[DoubleDimension] = None,
+  val dhispanic  : Option[DoubleDimension] = None,
+  val dhour89  : Option[DoubleDimension] = None,
+  val dhours  : Option[DoubleDimension] = None,
+  val dincome1  : Option[DoubleDimension] = None,
+  val dincome2  : Option[DoubleDimension] = None,
+  val dincome3  : Option[DoubleDimension] = None,
+  val dincome4  : Option[DoubleDimension] = None,
+  val dincome5  : Option[DoubleDimension] = None,
+  val dincome6  : Option[DoubleDimension] = None,
+  val dincome7  : Option[DoubleDimension] = None,
+  val dincome8  : Option[DoubleDimension] = None,
+  val dindustry  : Option[DoubleDimension] = None,
+  val doccup  : Option[DoubleDimension] = None,
+  val dpob  : Option[DoubleDimension] = None,
+  val dpoverty  : Option[DoubleDimension] = None,
+  val dpwgt1  : Option[DoubleDimension] = None,
+  val drearning  : Option[DoubleDimension] = None,
+  val drpincome  : Option[DoubleDimension] = None,
+  val dtravtime  : Option[DoubleDimension] = None,
+  val dweek89  : Option[DoubleDimension] = None,
+  val dyrsserv  : Option[DoubleDimension] = None,
+  val iavail  : Option[DoubleDimension] = None,
+  val icitizen  : Option[DoubleDimension] = None,
+  val iclass  : Option[DoubleDimension] = None,
+  val idisabl1  : Option[DoubleDimension] = None,
+  val idisabl2  : Option[DoubleDimension] = None,
+  val ienglish  : Option[DoubleDimension] = None,
+  val ifeb55  : Option[DoubleDimension] = None,
+  val ifertil  : Option[DoubleDimension] = None,
+  val iimmigr  : Option[DoubleDimension] = None,
+  val ikorean  : Option[DoubleDimension] = None,
+  val ilang1  : Option[DoubleDimension] = None,
+  val ilooking  : Option[DoubleDimension] = None,
+  val imarital  : Option[DoubleDimension] = None,
+  val imay75880  : Option[DoubleDimension] = None,
+  val imeans  : Option[DoubleDimension] = None,
+  val imilitary  : Option[DoubleDimension] = None,
+  val imobility  : Option[DoubleDimension] = None,
+  val imobillim  : Option[DoubleDimension] = None,
+  val iothrserv  : Option[DoubleDimension] = None,
+  val iperscare  : Option[DoubleDimension] = None,
+  val iragechld  : Option[DoubleDimension] = None,
+  val irelat1  : Option[DoubleDimension] = None,
+  val irelat2  : Option[DoubleDimension] = None,
+  val iremplpar  : Option[DoubleDimension] = None,
+  val iriders  : Option[DoubleDimension] = None,
+  val irlabor  : Option[DoubleDimension] = None,
+  val irownchld  : Option[DoubleDimension] = None,
+  val irpob  : Option[DoubleDimension] = None,
+  val irrelchld  : Option[DoubleDimension] = None,
+  val irspouse  : Option[DoubleDimension] = None,
+  val irvetserv  : Option[DoubleDimension] = None,
+  val ischool  : Option[DoubleDimension] = None,
+  val isept80  : Option[DoubleDimension] = None,
+  val isex  : Option[DoubleDimension] = None,
+  val isubfam1  : Option[DoubleDimension] = None,
+  val isubfam2  : Option[DoubleDimension] = None,
+  val itmpabsnt  : Option[DoubleDimension] = None,
+  val ivietnam  : Option[DoubleDimension] = None,
+  val iwork89  : Option[DoubleDimension] = None,
+  val iworklwk  : Option[DoubleDimension] = None,
+  val iwwii  : Option[DoubleDimension] = None,
+  val iyearsch  : Option[DoubleDimension] = None,
+  val iyearwrk  : Option[DoubleDimension] = None
+) extends Serializable
+{
+
+  def getInstanceObj : Instance = {
+    val label = caseid
+    val attribVector : Array[DimensionType] = Array.fill(Constants.DIMENSION_VECTOR_SIZE)(DoubleDimension())
+    
+    var i = 0 
+    attribVector(i) = dage match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dancstry1 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dancstry2 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = ddepart match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dhispanic match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dhour89 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dhours match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dincome1 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dincome2 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dincome3 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dincome4 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dincome5 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dincome6 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dincome7 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dincome8 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dindustry match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = doccup match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dpob match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dpoverty match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dpwgt1 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = drearning match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = drpincome match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dtravtime match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dweek89 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = dyrsserv match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iavail match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = icitizen match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iclass match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = idisabl1 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = idisabl2 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = ienglish match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = ifeb55 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = ifertil match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iimmigr match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = ikorean match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = ilang1 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = ilooking match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = imarital match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = imay75880 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = imeans match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = imilitary match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = imobility match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = imobillim match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iothrserv match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iperscare match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iragechld match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = irelat1 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = irelat2 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iremplpar match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iriders match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = irlabor match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = irownchld match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = irpob match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = irrelchld match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = irspouse match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = irvetserv match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = ischool match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = isept80 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = isex match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = isubfam1 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = isubfam2 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = itmpabsnt match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = ivietnam match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iwork89 match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iworklwk match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iwwii match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iyearsch match { case Some(value) => value ; case None => null}
+    i += 1
+    attribVector(i) = iyearwrk match { case Some(value) => value ; case None => null}
+    i += 1
+    
+    Instance(label, attribVector)
+
+  }
+}
+

@@ -1,0 +1,188 @@
+package com.sparkghsom.main.input_generator
+
+/**
+ * @author ameya
+ */
+import com.sparkghsom.main.ghsom_mixed.{Instance, GHSom,Attribute}
+import com.sparkghsom.main.datatypes.{DoubleDimension, NominalDimension, DimensionType, DimensionTypeEnum}
+import com.sparkghsom.main.globals.GHSomConfig
+import org.apache.spark.SparkConf
+import org.apache.spark.SparkContext
+import org.apache.spark.rdd.RDD
+import org.apache.log4j.Logger
+import org.apache.log4j.LogManager
+import org.apache.commons
+import org.apache.commons.io.FileUtils
+import java.io.File
+import scala.collection.mutable
+
+class HeartDiseaseData (val dataset : RDD[String]) extends Serializable{
+  
+  val attributes = Array(
+                        Attribute(name = "age", 
+                            index = 0, 
+                            dimensionType = DimensionTypeEnum.NUMERIC,
+                            randomValueFunction = DoubleDimension.getRandomDimensionValue),
+                        Attribute(name = "sex", 
+                                  index = 1, 
+                                  randomValueFunction = NominalDimension.getRandomDimensionValue,
+                                  dimensionType = DimensionTypeEnum.NOMINAL),
+                        Attribute(name = "cp", 
+                                  index = 2, 
+                                  randomValueFunction = NominalDimension.getRandomDimensionValue,
+                                  dimensionType = DimensionTypeEnum.NOMINAL),
+                        Attribute(name = "trestbps", 
+                                  index = 3, 
+                                  dimensionType = DimensionTypeEnum.NUMERIC,
+                                  randomValueFunction = DoubleDimension.getRandomDimensionValue), 
+                        Attribute(name = "chol", 
+                                  index = 4, 
+                                  dimensionType = DimensionTypeEnum.NUMERIC,
+                                  randomValueFunction = DoubleDimension.getRandomDimensionValue), 
+                        Attribute(name = "fbs", 
+                                  index = 5, 
+                                  randomValueFunction = NominalDimension.getRandomDimensionValue,
+                                  dimensionType = DimensionTypeEnum.NOMINAL),
+                        Attribute(name = "restecg", 
+                                  index = 6, 
+                                  randomValueFunction = NominalDimension.getRandomDimensionValue,
+                                  dimensionType = DimensionTypeEnum.NOMINAL),
+                        Attribute(name = "thalach", 
+                                  index = 7, 
+                                  dimensionType = DimensionTypeEnum.NUMERIC,
+                                  randomValueFunction = DoubleDimension.getRandomDimensionValue), 
+                        Attribute(name = "exang", 
+                                  index = 8, 
+                                  randomValueFunction = NominalDimension.getRandomDimensionValue,
+                                  dimensionType = DimensionTypeEnum.NOMINAL),
+                        Attribute(name = "oldpeak", 
+                                  index = 9, 
+                                  dimensionType = DimensionTypeEnum.NUMERIC,
+                                  randomValueFunction = DoubleDimension.getRandomDimensionValue), 
+                        Attribute(name = "slope", 
+                                  index = 10, 
+                                  randomValueFunction = NominalDimension.getRandomDimensionValue,
+                                  dimensionType = DimensionTypeEnum.NOMINAL),
+                        Attribute(name = "ca", 
+                                  index = 11, 
+                                  dimensionType = DimensionTypeEnum.NUMERIC,
+                                  randomValueFunction = DoubleDimension.getRandomDimensionValue), 
+                        Attribute(name = "thal", 
+                                  index = 12, 
+                                  randomValueFunction = NominalDimension.getRandomDimensionValue,
+                                  dimensionType = DimensionTypeEnum.NOMINAL)
+                      )
+      
+  //val attributes : Array[Attribute] = Array.ofDim(attributeMap.size)
+  
+  private val datasetOfInstanceObjs = instanizeDataset(dataset)
+  
+  def printDataset() {
+    // println(datasetRDD.count)
+  }
+  
+  def getDataset : RDD[Instance] = datasetOfInstanceObjs
+  
+  case class Data ( className : String, attributeVector : Array[DimensionType] ) {
+    def getInstanceObj = {
+      Instance(className, attributeVector)
+    }
+  }
+  
+  def instanizeDataset(dataset : RDD[String]) : RDD[Instance] = {
+    
+    val data = convertToDataRDD(dataset)
+    
+    val obj = data.first()
+    
+    // Creates an rdd of : [Index of attribute, attrib-value]
+    val attribMap : RDD[(Int,DimensionType)] = 
+      data.flatMap( 
+                    rec => { 
+                          val indexElem = rec.attributeVector.zipWithIndex
+                          indexElem.map(tup => (tup._2, tup._1)).toList
+                    }
+                  )
+    
+    val maxVector = attribMap.reduceByKey( DimensionType.getMax _).collectAsMap()
+    val minVector = attribMap.reduceByKey( DimensionType.getMin _).collectAsMap()
+    val domainValues = attribMap.reduceByKey(DimensionType.computeDomainValues).collectAsMap
+    
+    for (i <- 0 until attributes.size) {
+      if (attributes(i).dimensionType == DimensionTypeEnum.NUMERIC) {
+        attributes(i).maxValue = maxVector(i)
+        attributes(i).minValue = minVector(i)
+      }
+      else if (attributes(i).dimensionType == DimensionTypeEnum.NOMINAL) {
+        attributes(i).domainValues = domainValues(i).asInstanceOf[NominalDimension].getDomainValues
+      }
+    }
+    
+    data.map( rec => 
+                  Data( 
+                        rec.className,
+                        rec.attributeVector.zipWithIndex
+                                           .map( tup => 
+                                               if (tup._1.attributeType == DimensionTypeEnum.NUMERIC) {
+                                                 (tup._1 - minVector(tup._2)) / (maxVector(tup._2) - minVector(tup._2))
+                                               }
+                                               else {
+                                                 tup._1
+                                               }
+                                           )
+                      ).getInstanceObj
+        )
+  }
+  
+  def convertToDataRDD(dataset : RDD[String]) : RDD[Data] = {
+    dataset.map( line => {
+      val array = line.split(',')
+      Data(
+          array(array.length - 1),
+          Array.tabulate(attributes.size)(idx => {
+              val attribute = attributes(idx)
+              if (attribute.dimensionType == DimensionTypeEnum.NUMERIC)
+                DoubleDimension(attribute.name, array(idx).toDouble)
+              else if (attribute.dimensionType == DimensionTypeEnum.NOMINAL)
+                NominalDimension(attribute.name, array(idx))
+              else /* TODO : Ordinal */
+                NominalDimension(attribute.name, array(idx))
+              }
+            )
+      )
+    }
+    )
+  }
+}
+
+object HeartDiseaseData {
+  
+  val logger = LogManager.getLogger("HeartDisease")
+  
+  def main(args : Array[String]) {
+    val conf = new SparkConf(true)
+               .setAppName("Heart Disease")
+               .set("spark.storage.memoryFraction","0")
+               .set("spark.executor.memory","2g")
+               //.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+               .set("spark.default.parallelism","50")
+               //.set("spark.kryoserializer.buffer.max","400")
+               .setMaster("spark://192.168.101.13:7077")
+
+    val sc = new SparkContext(conf) 
+    
+    var epochs = GHSomConfig.EPOCHS
+    if(args.length >= 1) {
+      epochs = args(0).toInt  
+    }
+    
+    val dataset = sc.textFile("hdfs://192.168.101.13:9000/user/ameya/datasets/heartdisease/heartdisease.data")
+    val datasetReader = new HeartDiseaseData(dataset) 
+    
+    val processedDataset = datasetReader.getDataset
+    
+    val ghsom = GHSom()
+    
+    ghsom.train(processedDataset, datasetReader.attributes, epochs)
+  }
+}

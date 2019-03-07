@@ -1,0 +1,81 @@
+Instance : [+:+:64.30555555555554,+:65.87499999999999,+:70.13559322033899,+:68.66666666666667]
++:0.42870370370370364|+:0.4391666666666666|+:0.4675706214689266|+:0.4577777777777778
+Variance (C,N):0.0,0.27425448015318515
+total Instances : 150
+mqe0 : 0.27425448015318515
+Processing for parentLayer :0, parent neuron : 0,0
+Instance count in dataset for current layer 150
+epochs : 5
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 0.2713145939218811/3=0.09043819797396037
+tau1 x parentNeuronMQE : 0.05x0.27425448015318515=0.013712724007659258
+Neurons to Expand
+Neuron1: 0,0, Neuron2: 1,0
+Growing
+LAYER SIZE: 3x2
+epochs : 5
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 0.29531401766544246/5=0.059062803533088494
+tau1 x parentNeuronMQE : 0.05x0.27425448015318515=0.013712724007659258
+Neurons to Expand
+Neuron1: 1,0, Neuron2: 1,1
+Growing
+LAYER SIZE: 3x3
+epochs : 5
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 0.3391611894409383/7=0.048451598491562616
+tau1 x parentNeuronMQE : 0.05x0.27425448015318515=0.013712724007659258
+Neurons to Expand
+Neuron1: 0,0, Neuron2: 1,0
+Neuron1: 1,2, Neuron2: 2,2
+Growing
+LAYER SIZE: 5x3
+epochs : 5
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 0.44706268747186056/13=0.03438943749783543
+tau1 x parentNeuronMQE : 0.05x0.27425448015318515=0.013712724007659258
+Neurons to Expand
+Neuron1: 2,0, Neuron2: 3,0
+Neuron1: 1,0, Neuron2: 2,0
+Neuron1: 0,1, Neuron2: 1,1
+Neuron1: 3,2, Neuron2: 4,2
+Growing
+LAYER SIZE: 9x3
+epochs : 5
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 0.5038472487874426/23=0.021906402121193155
+tau1 x parentNeuronMQE : 0.05x0.27425448015318515=0.013712724007659258
+Neurons to Expand
+Neuron1: 4,0, Neuron2: 5,0
+Neuron1: 6,0, Neuron2: 7,0
+Neuron1: 0,2, Neuron2: 1,2
+Neuron1: 2,0, Neuron2: 3,0
+Neuron1: 1,2, Neuron2: 2,2
+Neuron1: 5,0, Neuron2: 6,0
+Growing
+LAYER SIZE: 15x3
+epochs : 5
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 0.7199535618370625/43=0.016743106089234013
+tau1 x parentNeuronMQE : 0.05x0.27425448015318515=0.013712724007659258
+Neurons to Expand
+Neuron1: 2,2, Neuron2: 3,2
+Neuron1: 9,0, Neuron2: 10,0
+Neuron1: 7,2, Neuron2: 8,2
+Neuron1: 6,0, Neuron2: 7,0
+Neuron1: 0,2, Neuron2: 1,2
+Neuron1: 8,0, Neuron2: 9,0
+Neuron1: 10,0, Neuron2: 11,0
+Neuron1: 1,0, Neuron2: 2,0
+Neuron1: 5,0, Neuron2: 6,0
+Neuron1: 3,2, Neuron2: 4,2
+Growing
+LAYER SIZE: 25x3
+epochs : 5
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 0.8446260973100453/63=0.013406763449365798
+tau1 x parentNeuronMQE : 0.05x0.27425448015318515=0.013712724007659258
+Done training
+Layer 1 Training time : 40383 milliseconds
+Hierarchical criterion: 0.3x0.27425448015318515=0.08227634404595555
+Training time : 46973 milliseconds

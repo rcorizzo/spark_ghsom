@@ -1,0 +1,104 @@
+Instance : [+:1 -> 43.0,0 -> 58.0,1 -> 20.0,0 -> 81.0,1 -> 59.0,0 -> 42.0,1 -> 41.0,0 -> 60.0,1 -> 24.0,0 -> 77.0,1 -> 36.0,0 -> 65.0,1 -> 56.0,0 -> 45.0,1 -> 61.0,0 -> 40.0,1 -> 83.0,0 -> 18.0,1 -> 80.0,0 -> 21.0,1 -> 8.0,0 -> 93.0,1 -> 17.0,0 -> 84.0,+:35.875,1 -> 75.0,0 -> 26.0,1 -> 13.0,0 -> 88.0,1 -> 44.0,0 -> 57.0]
+1 -> 0.42574257425742573,0 -> 0.5742574257425742|1 -> 0.19801980198019803,0 -> 0.801980198019802|1 -> 0.5841584158415841,0 -> 0.4158415841584158|1 -> 0.40594059405940597,0 -> 0.594059405940594|1 -> 0.2376237623762376,0 -> 0.7623762376237624|1 -> 0.3564356435643564,0 -> 0.6435643564356436|1 -> 0.5544554455445545,0 -> 0.44554455445544555|1 -> 0.6039603960396039,0 -> 0.39603960396039606|1 -> 0.8217821782178217,0 -> 0.1782178217821782|1 -> 0.7920792079207921,0 -> 0.2079207920792079|1 -> 0.07920792079207921,0 -> 0.9207920792079208|1 -> 0.16831683168316833,0 -> 0.8316831683168316|+:0.3551980198019802|1 -> 0.7425742574257426,0 -> 0.25742574257425743|1 -> 0.12871287128712872,0 -> 0.8712871287128713|1 -> 0.43564356435643564,0 -> 0.5643564356435643
+Variance (C,N):5.7147338496225855,0.06396431722380154
+total Instances : 101
+mqe0 : 5.778698166846387
+Processing for parentLayer :0, parent neuron : 0,0
+Instance count in dataset for current layer 101
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 10.018385271184806/4=2.5045963177962016
+tau1 x parentNeuronMQE : 0.2x5.778698166846387=1.1557396333692773
+Neurons to Expand
+Neuron1: 0,0, Neuron2: 1,0
+Growing
+LAYER SIZE: 3x2
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 8.988137290713732/5=1.7976274581427465
+tau1 x parentNeuronMQE : 0.2x5.778698166846387=1.1557396333692773
+Neurons to Expand
+Neuron1: 1,1, Neuron2: 2,1
+Neuron1: 0,1, Neuron2: 1,1
+Growing
+LAYER SIZE: 5x2
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 13.7079586093199/9=1.5231065121466556
+tau1 x parentNeuronMQE : 0.2x5.778698166846387=1.1557396333692773
+Neurons to Expand
+Neuron1: 3,1, Neuron2: 4,1
+Neuron1: 2,0, Neuron2: 3,0
+Neuron1: 0,1, Neuron2: 1,1
+Neuron1: 1,0, Neuron2: 2,0
+Growing
+LAYER SIZE: 9x2
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 18.778783756490977/16=1.173673984780686
+tau1 x parentNeuronMQE : 0.2x5.778698166846387=1.1557396333692773
+Neurons to Expand
+Neuron1: 7,0, Neuron2: 7,1
+Growing
+LAYER SIZE: 9x3
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 18.56606067151026/19=0.9771610879742243
+tau1 x parentNeuronMQE : 0.2x5.778698166846387=1.1557396333692773
+Done training
+Layer 1 Training time : 95573 milliseconds
+Hierarchical criterion: 0.1x5.778698166846387=0.5778698166846387
+Expand neuron: 1 : 8,1 : 0.8883415309983282
+Expand neuron: 1 : 6,0 : 1.0723458538033808
+Expand neuron: 1 : 8,2 : 0.8765169345299958
+Expand neuron: 1 : 6,2 : 0.8869738102492446
+Processing for parentLayer :1, parent neuron : 8,1
+Instance count in dataset for current layer 7
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 1.834773640138124/4=0.458693410034531
+tau1 x parentNeuronMQE : 0.2x0.8883415309983282=0.17766830619966567
+Done training
+Layer 2 Training time : 20766 milliseconds
+Hierarchical criterion: 0.1x5.778698166846387=0.5778698166846387
+Processing for parentLayer :1, parent neuron : 6,0
+Instance count in dataset for current layer 10
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 1.1470284687997148/2=0.5735142343998574
+tau1 x parentNeuronMQE : 0.2x1.0723458538033808=0.21446917076067618
+Neurons to Expand
+Neuron1: 0,0, Neuron2: 1,0
+Growing
+LAYER SIZE: 3x2
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 1.0580621162014636/3=0.35268737206715456
+tau1 x parentNeuronMQE : 0.2x1.0723458538033808=0.21446917076067618
+Increasing epochs 40
+epochs : 40
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 1.0580621162014636/3=0.35268737206715456
+tau1 x parentNeuronMQE : 0.2x1.0723458538033808=0.21446917076067618
+Done training
+Layer 3 Training time : 97465 milliseconds
+Hierarchical criterion: 0.1x5.778698166846387=0.5778698166846387
+Processing for parentLayer :1, parent neuron : 8,2
+Instance count in dataset for current layer 6
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 1.2176064379772742/3=0.4058688126590914
+tau1 x parentNeuronMQE : 0.2x0.8765169345299958=0.17530338690599917
+Done training
+Layer 4 Training time : 36152 milliseconds
+Hierarchical criterion: 0.1x5.778698166846387=0.5778698166846387
+Processing for parentLayer :1, parent neuron : 6,2
+Instance count in dataset for current layer 7
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 0.9952812785994374/3=0.33176042619981244
+tau1 x parentNeuronMQE : 0.2x0.8869738102492446=0.17739476204984894
+Done training
+Layer 5 Training time : 53156 milliseconds
+Hierarchical criterion: 0.1x5.778698166846387=0.5778698166846387
+Training time : 473323 milliseconds

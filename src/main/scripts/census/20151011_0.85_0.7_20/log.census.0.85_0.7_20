@@ -1,0 +1,738 @@
+EPOCHS: 20
+TAU1: 0.85
+TAU2: 0.7
+Variance (C,N):5.352760279031456,0.44382498817321775
+total Instances : 299285
+mqe0 : 5.796585267204674
+Processing for parentLayer :0, parent neuron : 0,0
+Instance count in dataset for current layer 299285
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 24.38401921637321/4=6.096004804093303
+tau1 x parentNeuronMQE : 0.85x5.796585267204674=4.927097477123973
+Diff from criterion: 1.1689073269693298
+Growing fast...
+Growing
+LAYER SIZE: 3x2
+Growth Training time : 125336 milliseconds
+Topographic Error: 0.3318709591192342
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 36.2910514132433/6=6.048508568873884
+tau1 x parentNeuronMQE : 0.85x5.796585267204674=4.927097477123973
+Diff from criterion: 1.121411091749911
+Growing fast...
+Growing
+LAYER SIZE: 5x2
+Growth Training time : 149445 milliseconds
+Topographic Error: 0.2778956513022704
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 57.812766325637085/10=5.781276632563708
+tau1 x parentNeuronMQE : 0.85x5.796585267204674=4.927097477123973
+Diff from criterion: 0.8541791554397351
+Growing fast...
+Growing
+LAYER SIZE: 8x2
+Growth Training time : 226124 milliseconds
+Topographic Error: 0.05216766627127988
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 90.81770599944774/16=5.676106624965484
+tau1 x parentNeuronMQE : 0.85x5.796585267204674=4.927097477123973
+Diff from criterion: 0.7490091478415106
+Growing fast...
+Growing
+LAYER SIZE: 15x2
+Growth Training time : 339803 milliseconds
+Topographic Error: 0.06671901364919726
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 164.15689403961915/30=5.471896467987305
+tau1 x parentNeuronMQE : 0.85x5.796585267204674=4.927097477123973
+Diff from criterion: 0.5447989908633319
+Growing fast...
+Growing
+LAYER SIZE: 26x2
+Growth Training time : 600570 milliseconds
+Topographic Error: 0.10322268072238835
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 263.28025257626024/51=5.162357893652161
+tau1 x parentNeuronMQE : 0.85x5.796585267204674=4.927097477123973
+Diff from criterion: 0.2352604165281882
+Growing fast...
+Growing
+LAYER SIZE: 34x2
+Growth Training time : 1008053 milliseconds
+Topographic Error: 0.06319060427351855
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 335.36002952247077/66=5.081212568522284
+tau1 x parentNeuronMQE : 0.85x5.796585267204674=4.927097477123973
+Diff from criterion: 0.15411509139831114
+Growing fast...
+Growing
+LAYER SIZE: 34x3
+Growth Training time : 1337025 milliseconds
+Topographic Error: 0.11270862221628214
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 474.79441648728556/94=5.051004430715804
+tau1 x parentNeuronMQE : 0.85x5.796585267204674=4.927097477123973
+Diff from criterion: 0.12390695359183113
+Growing fast...
+Growing
+LAYER SIZE: 46x3
+Growth Training time : 2030097 milliseconds
+Topographic Error: 0.13622132749720167
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 643.8085197954783/129=4.990763719344793
+tau1 x parentNeuronMQE : 0.85x5.796585267204674=4.927097477123973
+Diff from criterion: 0.06366624222081985
+Growing fast...
+Growing
+LAYER SIZE: 59x3
+Growth Training time : 2729253 milliseconds
+Topographic Error: 0.1178709257062666
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 805.3371473057391/165=4.880831195792358
+tau1 x parentNeuronMQE : 0.85x5.796585267204674=4.927097477123973
+Done training
+Growth Training time : 3680814 milliseconds
+Topographic Error: 0.09900596421471174
+Layer 1 Training time : 12606907 milliseconds
+Hierarchical criterion: 0.7x5.796585267204674=4.057609687043271
+Processing for parentLayer :1, parent neuron : 58,2
+Instance count in dataset for current layer 10857
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 8.093067396667866/2=4.046533698333933
+tau1 x parentNeuronMQE : 0.85x4.262860769754638=3.623431654291442
+Diff from criterion: 0.4231020440424911
+Growing fast...
+Growing
+LAYER SIZE: 2x3
+Growth Training time : 158134 milliseconds
+Topographic Error: 0.0
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 15.694366597067866/4=3.9235916492669665
+tau1 x parentNeuronMQE : 0.85x4.262860769754638=3.623431654291442
+Diff from criterion: 0.3001599949755245
+Growing fast...
+Growing
+LAYER SIZE: 2x5
+Growth Training time : 72021 milliseconds
+Topographic Error: 0.27604310583033986
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 24.14345610627016/6=4.023909351045027
+tau1 x parentNeuronMQE : 0.85x4.262860769754638=3.623431654291442
+Diff from criterion: 0.4004776967535846
+Growing fast...
+Growing
+LAYER SIZE: 3x5
+Growth Training time : 73709 milliseconds
+Topographic Error: 0.1841208436953118
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 41.00301126356699/10=4.100301126356699
+tau1 x parentNeuronMQE : 0.85x4.262860769754638=3.623431654291442
+Diff from criterion: 0.4768694720652573
+Growing fast...
+Growing
+LAYER SIZE: 4x5
+Growth Training time : 84298 milliseconds
+Topographic Error: 0.02993460440268951
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 66.34336887321265/17=3.9025511101889796
+tau1 x parentNeuronMQE : 0.85x4.262860769754638=3.623431654291442
+Diff from criterion: 0.2791194558975376
+Growing fast...
+Growing
+LAYER SIZE: 4x9
+Growth Training time : 89350 milliseconds
+Topographic Error: 0.02017131804365847
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 106.71731349763704/28=3.8113326249156083
+tau1 x parentNeuronMQE : 0.85x4.262860769754638=3.623431654291442
+Diff from criterion: 0.18790097062416633
+Growing fast...
+Growing
+LAYER SIZE: 4x14
+Growth Training time : 126640 milliseconds
+Topographic Error: 0.08372478585244543
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 165.70852279487428/44=3.7661027907925972
+tau1 x parentNeuronMQE : 0.85x4.262860769754638=3.623431654291442
+Diff from criterion: 0.14267113650115526
+Growing fast...
+Growing
+LAYER SIZE: 4x20
+Growth Training time : 171109 milliseconds
+Topographic Error: 0.08961960025789813
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 201.11728050646244/54=3.7243940834530083
+tau1 x parentNeuronMQE : 0.85x4.262860769754638=3.623431654291442
+Diff from criterion: 0.10096242916156628
+Growing fast...
+Growing
+LAYER SIZE: 7x20
+Growth Training time : 224666 milliseconds
+Topographic Error: 0.053421755549415126
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 368.9603020825238/101=3.6530722978467702
+tau1 x parentNeuronMQE : 0.85x4.262860769754638=3.623431654291442
+Diff from criterion: 0.02964064355532825
+Growing Slow...
+Growing
+LAYER SIZE: 7x21
+Growth Training time : 360919 milliseconds
+Topographic Error: 0.11209358017868656
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 402.03505011704726/109=3.6883949552022686
+tau1 x parentNeuronMQE : 0.85x4.262860769754638=3.623431654291442
+Diff from criterion: 0.06496330091082658
+Growing fast...
+Growing
+LAYER SIZE: 7x34
+Growth Training time : 377964 milliseconds
+Topographic Error: 0.10859353412544902
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 548.9386823374173/153=3.5878345250811585
+tau1 x parentNeuronMQE : 0.85x4.262860769754638=3.623431654291442
+Done training
+Growth Training time : 580557 milliseconds
+Topographic Error: 0.1901998710509349
+Layer 2 Training time : 2413364 milliseconds
+Hierarchical criterion: 0.7x5.796585267204674=4.057609687043271
+Processing for parentLayer :1, parent neuron : 50,2
+Instance count in dataset for current layer 3033
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 19.278416174480196/4=4.819604043620049
+tau1 x parentNeuronMQE : 0.85x5.4055695052522275=4.594734079464393
+Diff from criterion: 0.22486996415565574
+Growing fast...
+Growing
+LAYER SIZE: 3x2
+Growth Training time : 268008 milliseconds
+Topographic Error: 0.24398285525881966
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 28.792298507575733/6=4.798716417929289
+tau1 x parentNeuronMQE : 0.85x5.4055695052522275=4.594734079464393
+Diff from criterion: 0.203982338464896
+Growing fast...
+Growing
+LAYER SIZE: 3x3
+Growth Training time : 67545 milliseconds
+Topographic Error: 0.22387075502802506
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 42.183977150809845/9=4.687108572312205
+tau1 x parentNeuronMQE : 0.85x5.4055695052522275=4.594734079464393
+Diff from criterion: 0.09237449284781185
+Growing fast...
+Growing
+LAYER SIZE: 3x4
+Growth Training time : 67012 milliseconds
+Topographic Error: 0.20969337289812068
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 56.37936035384733/12=4.698280029487278
+tau1 x parentNeuronMQE : 0.85x5.4055695052522275=4.594734079464393
+Diff from criterion: 0.1035459500228848
+Growing fast...
+Growing
+LAYER SIZE: 4x4
+Growth Training time : 67424 milliseconds
+Topographic Error: 0.07451368282228817
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 60.0799188398085/13=4.6215322184468075
+tau1 x parentNeuronMQE : 0.85x5.4055695052522275=4.594734079464393
+Diff from criterion: 0.026798138982414343
+Growing Slow...
+Growing
+LAYER SIZE: 5x4
+Growth Training time : 76812 milliseconds
+Topographic Error: 0.0250576986482031
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 78.20008677538146/17=4.600005104434204
+tau1 x parentNeuronMQE : 0.85x5.4055695052522275=4.594734079464393
+Diff from criterion: 0.005271024969810689
+Growing Slow...
+Growing
+LAYER SIZE: 6x4
+Growth Training time : 73013 milliseconds
+Topographic Error: 0.03956478733926805
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 91.68813288657404/20=4.584406644328702
+tau1 x parentNeuronMQE : 0.85x5.4055695052522275=4.594734079464393
+Done training
+Growth Training time : 76620 milliseconds
+Topographic Error: 0.09066930431915596
+Layer 3 Training time : 713689 milliseconds
+Hierarchical criterion: 0.7x5.796585267204674=4.057609687043271
+Processing for parentLayer :1, parent neuron : 29,2
+Instance count in dataset for current layer 288
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 22.611803791544283/4=5.652950947886071
+tau1 x parentNeuronMQE : 0.85x6.041588487191367=5.135350214112662
+Diff from criterion: 0.517600733773409
+Growing fast...
+Growing
+LAYER SIZE: 3x2
+Growth Training time : 472741 milliseconds
+Topographic Error: 0.10069444444444445
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 32.585766063155035/6=5.430961010525839
+tau1 x parentNeuronMQE : 0.85x6.041588487191367=5.135350214112662
+Diff from criterion: 0.2956107964131771
+Growing fast...
+Growing
+LAYER SIZE: 5x2
+Growth Training time : 81166 milliseconds
+Topographic Error: 0.2013888888888889
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 51.85367380616799/10=5.185367380616799
+tau1 x parentNeuronMQE : 0.85x6.041588487191367=5.135350214112662
+Diff from criterion: 0.05001716650413712
+Growing fast...
+Growing
+LAYER SIZE: 7x2
+Growth Training time : 82692 milliseconds
+Topographic Error: 0.2222222222222222
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 63.615430051450495/12=5.301285837620875
+tau1 x parentNeuronMQE : 0.85x6.041588487191367=5.135350214112662
+Diff from criterion: 0.16593562350821323
+Growing fast...
+Growing
+LAYER SIZE: 7x3
+Growth Training time : 82332 milliseconds
+Topographic Error: 0.027777777777777776
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 65.94189840478488/13=5.0724537234449905
+tau1 x parentNeuronMQE : 0.85x6.041588487191367=5.135350214112662
+Done training
+Growth Training time : 87000 milliseconds
+Topographic Error: 0.041666666666666664
+Layer 4 Training time : 822693 milliseconds
+Hierarchical criterion: 0.7x5.796585267204674=4.057609687043271
+Processing for parentLayer :1, parent neuron : 30,1
+Instance count in dataset for current layer 253
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 23.174237064294005/4=5.793559266073501
+tau1 x parentNeuronMQE : 0.85x6.438985327991777=5.47313752879301
+Diff from criterion: 0.3204217372804914
+Growing fast...
+Growing
+LAYER SIZE: 3x2
+Growth Training time : 882874 milliseconds
+Topographic Error: 0.25296442687747034
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 33.91495979453604/6=5.65249329908934
+tau1 x parentNeuronMQE : 0.85x6.438985327991777=5.47313752879301
+Diff from criterion: 0.17935577029632999
+Growing fast...
+Growing
+LAYER SIZE: 5x2
+Growth Training time : 107343 milliseconds
+Topographic Error: 0.1541501976284585
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 55.39633107152293/10=5.539633107152293
+tau1 x parentNeuronMQE : 0.85x6.438985327991777=5.47313752879301
+Diff from criterion: 0.06649557835928288
+Growing fast...
+Growing
+LAYER SIZE: 7x2
+Growth Training time : 112658 milliseconds
+Topographic Error: 0.07905138339920949
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 66.74829303408504/12=5.56235775284042
+tau1 x parentNeuronMQE : 0.85x6.438985327991777=5.47313752879301
+Diff from criterion: 0.08922022404741003
+Growing fast...
+Growing
+LAYER SIZE: 10x2
+Growth Training time : 114392 milliseconds
+Topographic Error: 0.08695652173913043
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 100.24588302486248/19=5.276099106571709
+tau1 x parentNeuronMQE : 0.85x6.438985327991777=5.47313752879301
+Done training
+Growth Training time : 114681 milliseconds
+Topographic Error: 0.1541501976284585
+Layer 5 Training time : 1355482 milliseconds
+Hierarchical criterion: 0.7x5.796585267204674=4.057609687043271
+Processing for parentLayer :1, parent neuron : 31,0
+Instance count in dataset for current layer 1448
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 22.78668585078334/4=5.696671462695835
+tau1 x parentNeuronMQE : 0.85x5.971022030162992=5.075368725638543
+Diff from criterion: 0.6213027370572917
+Growing fast...
+Growing
+LAYER SIZE: 2x3
+Growth Training time : 1700153 milliseconds
+Topographic Error: 0.2838397790055249
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 34.359709212625454/6=5.726618202104242
+tau1 x parentNeuronMQE : 0.85x5.971022030162992=5.075368725638543
+Diff from criterion: 0.6512494764656989
+Growing fast...
+Growing
+LAYER SIZE: 2x5
+Growth Training time : 158257 milliseconds
+Topographic Error: 0.23964088397790057
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 55.48749390231428/10=5.5487493902314275
+tau1 x parentNeuronMQE : 0.85x5.971022030162992=5.075368725638543
+Diff from criterion: 0.4733806645928844
+Growing fast...
+Growing
+LAYER SIZE: 2x8
+Growth Training time : 160369 milliseconds
+Topographic Error: 0.04558011049723757
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 77.97631138060727/14=5.569736527186234
+tau1 x parentNeuronMQE : 0.85x5.971022030162992=5.075368725638543
+Diff from criterion: 0.4943678015476909
+Growing fast...
+Growing
+LAYER SIZE: 2x12
+Growth Training time : 160979 milliseconds
+Topographic Error: 0.021408839779005526
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 104.21990384302124/19=5.485258097001118
+tau1 x parentNeuronMQE : 0.85x5.971022030162992=5.075368725638543
+Diff from criterion: 0.4098893713625751
+Growing fast...
+Growing
+LAYER SIZE: 2x22
+Growth Training time : 164853 milliseconds
+Topographic Error: 0.04765193370165746
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 207.71238417968846/39=5.32595856870996
+tau1 x parentNeuronMQE : 0.85x5.971022030162992=5.075368725638543
+Diff from criterion: 0.25058984307141685
+Growing fast...
+Growing
+LAYER SIZE: 2x38
+Growth Training time : 172218 milliseconds
+Topographic Error: 0.04281767955801105
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 353.4625111897267/68=5.197978105731274
+tau1 x parentNeuronMQE : 0.85x5.971022030162992=5.075368725638543
+Diff from criterion: 0.12260938009273126
+Growing fast...
+Growing
+LAYER SIZE: 2x58
+Growth Training time : 179949 milliseconds
+Topographic Error: 0.07734806629834254
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 535.1285394620187/105=5.0964622805906545
+tau1 x parentNeuronMQE : 0.85x5.971022030162992=5.075368725638543
+Diff from criterion: 0.021093554952111404
+Growing Slow...
+Growing
+LAYER SIZE: 2x59
+Growth Training time : 196647 milliseconds
+Topographic Error: 0.1899171270718232
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 559.6696503761204/110=5.087905912510186
+tau1 x parentNeuronMQE : 0.85x5.971022030162992=5.075368725638543
+Diff from criterion: 0.012537186871642625
+Growing Slow...
+Growing
+LAYER SIZE: 2x60
+Growth Training time : 195138 milliseconds
+Topographic Error: 0.11740331491712708
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 579.660989293428/114=5.08474552011779
+tau1 x parentNeuronMQE : 0.85x5.971022030162992=5.075368725638543
+Diff from criterion: 0.009376794479246442
+Growing Slow...
+Growing
+LAYER SIZE: 2x61
+Growth Training time : 193449 milliseconds
+Topographic Error: 0.1505524861878453
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 570.6447331118109/112=5.095042259926883
+tau1 x parentNeuronMQE : 0.85x5.971022030162992=5.075368725638543
+Diff from criterion: 0.019673534288339845
+Growing Slow...
+Growing
+LAYER SIZE: 2x62
+Growth Training time : 195105 milliseconds
+Topographic Error: 0.14226519337016574
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 607.9813773096978/120=5.066511477580815
+tau1 x parentNeuronMQE : 0.85x5.971022030162992=5.075368725638543
+Done training
+Growth Training time : 201724 milliseconds
+Topographic Error: 0.10773480662983426
+Layer 6 Training time : 3768420 milliseconds
+Hierarchical criterion: 0.7x5.796585267204674=4.057609687043271
+Processing for parentLayer :1, parent neuron : 51,1
+Instance count in dataset for current layer 731
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 17.48576575221975/4=4.371441438054937
+tau1 x parentNeuronMQE : 0.85x4.9005279463509455=4.165448754398303
+Diff from criterion: 0.2059926836566337
+Growing fast...
+Growing
+LAYER SIZE: 2x3
+Growth Training time : 3333151 milliseconds
+Topographic Error: 0.10807113543091655
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 26.125414013926658/6=4.354235668987776
+tau1 x parentNeuronMQE : 0.85x4.9005279463509455=4.165448754398303
+Diff from criterion: 0.18878691458947294
+Growing fast...
+Growing
+LAYER SIZE: 2x5
+Growth Training time : 262536 milliseconds
+Topographic Error: 0.106703146374829
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 38.867726353526876/9=4.318636261502986
+tau1 x parentNeuronMQE : 0.85x4.9005279463509455=4.165448754398303
+Diff from criterion: 0.15318750710468265
+Growing fast...
+Growing
+LAYER SIZE: 2x8
+Growth Training time : 264532 milliseconds
+Topographic Error: 0.016415868673050615
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 62.95113748488103/15=4.1967424989920685
+tau1 x parentNeuronMQE : 0.85x4.9005279463509455=4.165448754398303
+Diff from criterion: 0.031293744593765105
+Growing Slow...
+Growing
+LAYER SIZE: 3x8
+Growth Training time : 270042 milliseconds
+Topographic Error: 0.14774281805745554
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 97.90300721710831/24=4.079291967379513
+tau1 x parentNeuronMQE : 0.85x4.9005279463509455=4.165448754398303
+Done training
+Growth Training time : 274842 milliseconds
+Topographic Error: 0.12585499316005472
+Layer 7 Training time : 4465838 milliseconds
+Hierarchical criterion: 0.7x5.796585267204674=4.057609687043271
+Processing for parentLayer :1, parent neuron : 52,0
+Instance count in dataset for current layer 785
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 12.316559550489774/3=4.105519850163258
+tau1 x parentNeuronMQE : 0.85x4.616018854160064=3.923616026036054
+Diff from criterion: 0.18190382412720396
+Growing fast...
+Growing
+LAYER SIZE: 2x3
+Growth Training time : 6511067 milliseconds
+Topographic Error: 0.03821656050955414
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 24.348522324279884/6=4.058087054046648
+tau1 x parentNeuronMQE : 0.85x4.616018854160064=3.923616026036054
+Diff from criterion: 0.1344710280105934
+Growing fast...
+Growing
+LAYER SIZE: 2x5
+Growth Training time : 394795 milliseconds
+Topographic Error: 0.04713375796178344
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 35.741382064291344/9=3.971264673810149
+tau1 x parentNeuronMQE : 0.85x4.616018854160064=3.923616026036054
+Diff from criterion: 0.04764864777409494
+Growing Slow...
+Growing
+LAYER SIZE: 2x6
+Growth Training time : 408497 milliseconds
+Topographic Error: 0.17579617834394903
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 47.42911309288835/12=3.952426091074029
+tau1 x parentNeuronMQE : 0.85x4.616018854160064=3.923616026036054
+Diff from criterion: 0.028810065037975008
+Growing Slow...
+Growing
+LAYER SIZE: 2x7
+Growth Training time : 407176 milliseconds
+Topographic Error: 0.20127388535031848
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 55.077241099623826/14=3.9340886499731305
+tau1 x parentNeuronMQE : 0.85x4.616018854160064=3.923616026036054
+Diff from criterion: 0.010472623937076264
+Growing Slow...
+Growing
+LAYER SIZE: 2x8
+Growth Training time : 407750 milliseconds
+Topographic Error: 0.19872611464968154
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 62.635704347807184/16=3.914731521737949
+tau1 x parentNeuronMQE : 0.85x4.616018854160064=3.923616026036054
+Done training
+Growth Training time : 418337 milliseconds
+Topographic Error: 0.24203821656050956
+Layer 8 Training time : 8658843 milliseconds
+Hierarchical criterion: 0.7x5.796585267204674=4.057609687043271
+Processing for parentLayer :1, parent neuron : 52,2
+Instance count in dataset for current layer 5307
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 13.270097076835015/3=4.423365692278338
+tau1 x parentNeuronMQE : 0.85x4.756269722935309=4.042829264495012
+Diff from criterion: 0.3805364277833263
+Growing fast...
+Growing
+LAYER SIZE: 3x2
+Growth Training time : 12836830 milliseconds
+Topographic Error: 0.28151498021481064
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 17.24401714635151/4=4.3110042865878775
+tau1 x parentNeuronMQE : 0.85x4.756269722935309=4.042829264495012
+Diff from criterion: 0.2681750220928656
+Growing fast...
+Growing
+LAYER SIZE: 3x3
+Growth Training time : 640863 milliseconds
+Topographic Error: 0.28151498021481064
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 30.14639430704636/7=4.30662775814948
+tau1 x parentNeuronMQE : 0.85x4.756269722935309=4.042829264495012
+Diff from criterion: 0.26379849365446795
+Growing fast...
+Growing
+LAYER SIZE: 3x5
+Growth Training time : 639988 milliseconds
+Topographic Error: 0.2771810815903524
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 48.578221298869074/11=4.416201936260825
+tau1 x parentNeuronMQE : 0.85x4.756269722935309=4.042829264495012
+Diff from criterion: 0.37337267176581346
+Growing fast...
+Growing
+LAYER SIZE: 3x7
+Growth Training time : 660060 milliseconds
+Topographic Error: 0.2296966270962879
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 76.09076250154479/18=4.227264583419155
+tau1 x parentNeuronMQE : 0.85x4.756269722935309=4.042829264495012
+Diff from criterion: 0.18443531892414278
+Growing fast...
+Growing
+LAYER SIZE: 3x11
+Growth Training time : 663703 milliseconds
+Topographic Error: 0.17599397022800076
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 115.82388880237328/28=4.136567457227617
+tau1 x parentNeuronMQE : 0.85x4.756269722935309=4.042829264495012
+Diff from criterion: 0.09373819273260509
+Growing fast...
+Growing
+LAYER SIZE: 3x15
+Growth Training time : 693465 milliseconds
+Topographic Error: 0.14867156585641605
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 157.27096140508922/38=4.1387095106602425
+tau1 x parentNeuronMQE : 0.85x4.756269722935309=4.042829264495012
+Diff from criterion: 0.09588024616523061
+Growing fast...
+Growing
+LAYER SIZE: 4x15
+Growth Training time : 672968 milliseconds
+Topographic Error: 0.19804032410024497
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 201.82616209899516/49=4.118901267326431
+tau1 x parentNeuronMQE : 0.85x4.756269722935309=4.042829264495012
+Diff from criterion: 0.07607200283141946
+Growing fast...
+Growing
+LAYER SIZE: 7x15
+Growth Training time : 700082 milliseconds
+Topographic Error: 0.09534576973808177
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 328.5767628402882/81=4.05650324494183
+tau1 x parentNeuronMQE : 0.85x4.756269722935309=4.042829264495012
+Diff from criterion: 0.01367398044681778
+Growing Slow...
+Growing
+LAYER SIZE: 7x16
+Growth Training time : 734521 milliseconds
+Topographic Error: 0.14452609760693425
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 340.0103375648903/83=4.096510091143256
+tau1 x parentNeuronMQE : 0.85x4.756269722935309=4.042829264495012
+Diff from criterion: 0.05368082664824403
+Growing fast...
+Growing
+LAYER SIZE: 7x23
+Growth Training time : 721878 milliseconds
+Topographic Error: 0.07103825136612021
+epochs : 20
+Criterion : 
+sum_mqe_m / mappedNeuronsCnt : 483.7798647405402/121=3.998180700335043
+tau1 x parentNeuronMQE : 0.85x4.756269722935309=4.042829264495012
+Done training
+Growth Training time : 781262 milliseconds
+Topographic Error: 0.13566986998304126
+Layer 9 Training time : 20088230 milliseconds
+Hierarchical criterion: 0.7x5.796585267204674=4.057609687043271
+Processing for parentLayer :1, parent neuron : 23,2
+Instance count in dataset for current layer 460
+epochs : 20

@@ -1,0 +1,408 @@
+package com.sparkghsom.main.datatypes
+
+import scala.util.Random
+import org.apache.commons.lang.IllegalClassException
+import scala.math.{sqrt,abs}
+import scala.compat.Platform
+import scala.collection.mutable
+import com.sparkghsom.main.globals.GHSomConfig
+
+
+/**
+ * Class for Nominal Dimension (Kind of Categorical Dimension)
+ * @param _attribName : Name of the attribute 
+ * @param _value : Value of the attribute
+ * @param _valueFreqMap : Map holding the frequencies of the values
+ */
+class NominalDimension private(
+    _attribName : String = "", 
+    private var _attributeValue : String = "", 
+    private val _valueFreqMap : mutable.Map[String, Double] = mutable.Map[String, Double]()) 
+extends Dimension[String](_attributeValue){
+
+  /*
+   * This class operates as follows:
+   * - A fresh object of this class (attribute of a data instance) has only the _value attribute 
+   *   populated. The _valueFreqMap is empty.
+   * - _valueFreqMap datastructure is used for neuron instances during the training of SOM.
+   * - To calculate the value of the dimension at any time, the value method is called.
+   *   It checks if it is a fresh dimension (valueFreqMap is empty).
+   *   If the map is not empty, then this attribute is for a neuron instance and 
+   *   it computes the value from the most frequent value from the value freq map. 
+   * - At every stage of training, a new instance of this attribute is created in the attribute 
+   *   vector
+   *   -- When a neighbourhood factor is computed, and it is applied to an attribute, the 
+   *      applyNeighbourhoodFactor method is called. 
+   *   -- For combining the neighbourhood factors, add the valueFreqMap of corresponding 
+   *      Nominal Dimensions. (Also for calculating the average instance for layer0)
+   *   -- For dividing with the neighbourhood factor, divide the entries in the freq. 
+   *      map with the factor. 
+   *   
+   */
+  val attributeName = _attribName
+
+  val attributeType = DimensionTypeEnum.NOMINAL
+  
+  /*if ( _valueFreqMap.isEmpty ) {
+    _valueFreqMap.put(_value, 0) 
+  }*/
+  
+  var valueUpdated : Boolean = false
+  
+  override def value : String = {
+    if (valueUpdated || _valueFreqMap.isEmpty)
+      _value
+    else {
+      var maxFreq = 0.0 
+      _valueFreqMap.foreach {
+          case (dimValue,freq) => 
+            if (freq > maxFreq) {
+              _value = dimValue
+              maxFreq = freq 
+            }
+      }
+      valueUpdated = true
+      _value
+    }
+  }
+  
+  override def equals( d2 : DimensionType ) : Boolean = {
+     d2 match {
+       case other : NominalDimension => other.value.compare(this.value) == 0
+       case _ => false 
+     } 
+  }
+  
+  /*
+  def getRandomDimensionValue() : NominalDimension = {
+    new NominalDimension(this.attributeName, domainList(Random.nextInt(domainList.length)), domainList )
+  }
+  * 
+  */
+
+  override def compare( that : DimensionType ) : Int = {
+    that match {
+      case thatObj : NominalDimension => {
+                                          val x = this.value.compare(thatObj.value)
+                                          if (x == 0) return 0
+                                          else if (x > 0) return 1
+                                          else return -1
+                                        }
+      case _ => throw new IllegalClassException("Illegal class in NominalDimension")
+    }
+  }
+  
+  def !=( that : String ) : Boolean = {
+    this.value.compare(that) != 0
+  }
+  
+  override def /( that : DimensionType ) = {
+    throw new UnsupportedOperationException("NominalDimension")
+  }
+  
+  override def /( num : Long ) : DimensionType = {
+    throw new UnsupportedOperationException("NominalDimension")
+  } 
+
+  override def /( num : Double) : DimensionType = {
+     val newValueFreqMap : mutable.Map[String, Double] = _valueFreqMap.map{ case (value,freq) => (value,freq / num) }
+     new NominalDimension(this.attributeName, this._value, newValueFreqMap)     
+  } 
+  
+  override def !=( that : DimensionType ) : Boolean = {
+    that match {
+      case d : NominalDimension => this.value.compare(d.value) != 0
+      case _ => false
+    }
+  }
+  
+  override def ==( that : DimensionType ) : Boolean = {
+    that match {
+      case d : NominalDimension => this.value.compare(d.value) == 0
+      case _ => false
+    }
+  }
+  
+  override def <( that : DimensionType ) : Boolean = {
+    that match {
+      case d : NominalDimension => this.value.compare(d.value) < 0
+      case _ => false
+    }
+  }
+  
+  override def <=( that : DimensionType ) : Boolean = {
+    that match {
+      case d : NominalDimension => this.value.compare(d.value) < 0 || this.value.compare(d.value) == 0
+      case _ => false
+    }
+  }
+  
+  override def >=( that : DimensionType ) : Boolean = {
+    that match {
+      case d : NominalDimension => this.value.compare(d.value) > 0 || this.value.compare(d.value) == 0
+      case _ => false
+    }
+  }
+  
+  override def >( that : DimensionType ) : Boolean = {
+    that match {
+      case d : NominalDimension => this.value.compare(d.value) < 0
+      case _ => false
+    }
+  }
+  
+  override def toString : String = {
+    var str = this.value  
+    if (GHSomConfig.DEBUG)
+      str = str + "{" + this._valueFreqMap.mkString("|") + "}"
+    
+    str
+  }
+  
+  /**
+   * Combines the value-frequency maps of both nominal dimensions and returns a third dimension.
+   */
+  override def +(that : DimensionType) : DimensionType = {
+    that match {
+      case other : NominalDimension => {
+        val newValueFreqMap = mutable.Map[String,Double]()
+        
+        /*
+         * Combine the values and frequencies from both NominalDimensions.
+         * * CASE 1 : If both have empty valueFreqMaps, then both are fresh (no 
+         *   operations performed after creation) NominalDimensions,
+         *   hence, add both the values to the new map with freq 1
+         * * CASE 2 : Else If "this" has empty valueFreqMap and "other" has elements in the 
+         *   frequency map, 
+         *   copy other's freq map to new map and add "this" value to 
+         *   the new map (update/add) 
+         * * CASE 3 : Else If "other" has empty valueFreqMap and "this" has elements in the 
+         *   frequency map, 
+         *   copy this's freq map to new map and add "other" value to 
+         *   the new map (update/add) 
+         * * CASE 4 : Else both "this" and "other" have updates made on them, so 
+         *   combine value Freq Maps of them
+         *   
+         */
+        /* CASE 1 */
+        if (this._valueFreqMap.isEmpty && other._valueFreqMap.isEmpty) {
+          newValueFreqMap.put(this._value, 1)
+          newValueFreqMap.put(other._value, 1)
+        }
+        /* CASE 2 */
+        else if (this._valueFreqMap.isEmpty) {
+          newValueFreqMap.put(this._value, 1)
+          other._valueFreqMap.foreach{
+            case (value, freq) => 
+              if (newValueFreqMap.contains(value))
+                newValueFreqMap.put(value, freq + newValueFreqMap(value))
+              else
+                newValueFreqMap.put(value, freq)
+          }
+        }
+        /* CASE 3 */
+        else if (other._valueFreqMap.isEmpty) {
+          newValueFreqMap.put(other._value, 1)
+          this._valueFreqMap.foreach{
+            case (value, freq) => 
+              if (newValueFreqMap.contains(value))
+                newValueFreqMap.put(value, freq + newValueFreqMap(value))
+              else
+                newValueFreqMap.put(value, freq)
+          }
+        }
+        /* CASE 4 */
+        else { 
+          // copy values from this value-freq map and common ones
+          this._valueFreqMap.foreach{
+            case (value, freq) => {
+              if (other._valueFreqMap.contains(value)) {
+                val newFreq = other._valueFreqMap(value) + freq
+                newValueFreqMap.put(value, newFreq)
+              }
+              else 
+                newValueFreqMap.put(value, freq)
+            }
+          }
+        }
+        // copy the remaining ones from other
+        other._valueFreqMap.foreach {
+          case (value, freq) => {
+            if (!newValueFreqMap.contains(value)) {
+              newValueFreqMap.put(value,freq)
+            }
+          }
+        }
+        if (GHSomConfig.IGNORE_UNKNOWN)
+          newValueFreqMap.remove("UNKNOWN")
+        new NominalDimension(this.attributeName, this.value, newValueFreqMap)
+      }
+      
+      case _ => throw new IllegalClassException("Illegal class in NominalDimension")
+    }
+  }
+  
+  /**
+   * Subtraction operation is used for initializing the instances of the new layer.
+   * Since the subtraction of two (fresh) nominal dimensions doesn't make sense,
+   * we are going to return "this" value.
+   * 
+   * For the next layer initialization, the value of the nominal dimension is the 
+   * average of the most frequent value of the nominal dimension amongst the neuron
+   * and its corresponding neighbours. 
+   */
+  override def -( that : DimensionType ) = {
+    that match {
+      case d : NominalDimension => NominalDimension(this.attributeName, this.value) 
+      case _ => throw new IllegalClassException("Illegal class in DoubleDimension")
+    }
+  }
+  
+  override def getDissimilarityValue( that : DimensionType ) : Double = {
+    that match {
+      case other : NominalDimension =>
+        if (this.value.compare(other.value) == 0)
+          0
+        else 
+          1
+      case _ => throw new IllegalClassException("Illegal class in NominalDimension")
+    }
+  }
+  
+  override def * (that : DimensionType) : DimensionType = {
+    throw new UnsupportedOperationException("NominalDimension")
+  }
+  
+  /*
+  override def * (multFactor : Double) : DimensionType = {
+    throw new UnsupportedOperationException("NominalDimension")
+  }  
+  *  
+  */
+  
+  /*
+  override def getAbs : DimensionType = {
+    throw new UnsupportedOperationException("NominalDimension")
+  }
+  * 
+  */
+  
+  override def cloneMe : DimensionType = {
+    new NominalDimension(this.attributeName, this.value, this._valueFreqMap)
+  }
+  
+  /*
+  override def isZero : Boolean = {
+    throw new UnsupportedOperationException("NominalDimension")
+  }
+  * 
+  */
+  
+  override def hashCode : Int = this.value.hashCode
+  
+  /**
+   * This functions expects a fresh NominalDimension 
+   * (nothing in valueFreqMap/attribute of the instance)
+   */
+  override def applyNeighbourhoodFactor(factor : Double) : DimensionType = {
+    val newValueFreqMap = mutable.Map(this.value -> factor)
+    new NominalDimension(this.attributeName, this.value, newValueFreqMap)
+  }
+  
+  override def divideByCumulativeNeighbourhoodFactor(factor : Double) : DimensionType = {
+    new NominalDimension(
+          this.attributeName, 
+          this.value, 
+          this._valueFreqMap.map{case (value, freq) => 
+            (value, freq/factor)  
+          }
+        )
+  } 
+  
+  override def getUpdateValue(oldValue : DimensionType) : DimensionType = {
+    
+    val theta = 0.5 // for case 2
+    /*
+     *  CASE 1 : Freq of max value > Sum of freq of others 
+     */
+    val maxValue = this.value
+    val sumOfFreq = this._valueFreqMap.map(keyValue => keyValue._2).sum
+    
+    if (this._valueFreqMap(maxValue) > sumOfFreq - this._valueFreqMap(maxValue))
+      NominalDimension(this.attributeName, maxValue)
+    /* 
+     * CASE 2 : random(0,1) > .50 [theta] 
+     */
+    else if(Random.nextDouble() > theta) {
+      NominalDimension(this.attributeName, maxValue)
+    }
+    /* 
+     * CASE 3 : old value  
+     */
+    else 
+      oldValue
+  } 
+  
+  override def getFreshDimension : DimensionType = {
+    NominalDimension(this.attributeName, this.value)
+  }
+  
+  override def avgForGrowingLayerWith(that : DimensionType) : DimensionType = {
+    that match {
+      case other : NominalDimension => 
+        val newValue = if(NominalDimension.averageSwitch) this.value else other.value
+        if (!(this.value == other.value))
+          NominalDimension.averageSwitch = !NominalDimension.averageSwitch
+        NominalDimension(
+          this.attributeName, 
+          newValue
+        )
+      case _ => throw new IllegalClassException("Illegal class in NominalDimension")
+    }
+  }
+  
+  def getDomainValues : Array[String] = {
+    this._valueFreqMap.map(tup => tup._1).toArray
+  }
+  
+  /**
+   * Returns the index of the categorical value in the domainValues array
+   */
+  override def getImagePixelValue(domainValues : Array[_ <: Any]) : Double = {
+    val domainValuesStr = domainValues.map(_.asInstanceOf[String])
+    domainValuesStr.indexOf(this.value)
+  }
+}
+
+object NominalDimension {
+  
+  val MinValue = NominalDimension(name = "", value = "")
+  val MaxValue = NominalDimension(name = "", value = "")
+  
+  val randomGenerator = new Random(Platform.currentTime)
+  
+  var averageSwitch = false 
+  
+  def apply(name : String = "", value : String = "") : NominalDimension = {
+    new NominalDimension(name, value, mutable.Map[String,Double]())
+  }
+  
+  def apply() : NominalDimension = {
+    new NominalDimension("", "")
+  }
+  
+  def getMax( a : NominalDimension, b : NominalDimension ) : NominalDimension = {
+    if (a._valueFreqMap(a.value) > b._valueFreqMap(b.value)) a 
+    else b 
+  }
+  
+  def getMin( a : NominalDimension, b : NominalDimension) : NominalDimension = {
+    if (a._valueFreqMap(a.value) < b._valueFreqMap(b.value)) a 
+    else b 
+  }
+  
+  def getRandomDimensionValue(name : String, domainValues : Array[String]) : NominalDimension = {
+    NominalDimension(name, domainValues(Random.nextInt(domainValues.size)))
+  }
+
+}

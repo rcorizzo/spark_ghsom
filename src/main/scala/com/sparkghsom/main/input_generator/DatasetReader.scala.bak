@@ -1,0 +1,9 @@
+package com.sparkghsom.main.input_generator
+
+import org.apache.spark.rdd.RDD
+
+abstract class DatasetReader extends Serializable {
+  
+  def vectorSize() : Int
+ 
+}

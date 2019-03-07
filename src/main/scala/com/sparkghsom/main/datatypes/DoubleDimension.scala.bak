@@ -1,0 +1,224 @@
+package com.sparkghsom.main.datatypes
+
+import scala.util.Random
+import org.apache.commons.lang.IllegalClassException
+import scala.math.{sqrt,abs}
+import scala.compat.Platform
+
+
+class DoubleDimension (
+    private val _attribName : String = "", 
+    private val _attributeValue : Double = 0.0) 
+    extends Dimension[Double](_attributeValue) {
+  
+  val attributeName = _attribName
+  val attributeType = DimensionTypeEnum.NUMERIC
+  
+  override def equals( d2 : DimensionType ) : Boolean = {
+     d2 match {
+       case otherDoubleDimension : DoubleDimension => otherDoubleDimension.value == value
+       case _ => false 
+     } 
+  }
+  
+  override def compare( that : DimensionType ) : Int = {
+    that match {
+      case thatObj : DoubleDimension => {
+                                          val x = this.value - thatObj.value
+                                          if (x == 0) return 0
+                                          else if (x > 0) return 1
+                                          else return -1
+                                        }
+      case _ => throw new IllegalClassException("Illegal class in DoubleDimension")
+    }
+  }
+  
+  def !=( that : Double ) : Boolean = {
+    this.value != that
+  }
+  
+  
+  def -( that : DoubleDimension ) = {
+    DoubleDimension(this.attributeName, this.value - that.value)
+  }
+  
+  override def -( that : DimensionType ) = {
+    that match {
+      case d : DoubleDimension =>DoubleDimension(this.attributeName, this.value - d.value) 
+      case _ => throw new IllegalClassException("Illegal class in DoubleDimension")
+    }
+  }
+  
+  override def /( that : DimensionType ) = {
+    that match {
+      case d : DoubleDimension =>DoubleDimension(this.attributeName, this.value / d.value) 
+      case _ => throw new IllegalClassException("Illegal class in DoubleDimension")
+    }
+  }
+  
+  def /( that : DoubleDimension ) = {
+    DoubleDimension(this.attributeName, this.value / that.value) 
+  }
+  
+  override def /( num : Long ) : DimensionType = {
+    DoubleDimension(this.attributeName, this.value / num)
+  } 
+
+  override def /( num : Double) : DimensionType = {
+    DoubleDimension(this.attributeName, this.value / num)
+  } 
+  
+  override def !=( that : DimensionType ) : Boolean = {
+    that match {
+      case d : DoubleDimension => this.value != d.value
+      case _ => false
+    }
+  }
+  
+  override def ==( that : DimensionType ) : Boolean = {
+    that match {
+      case d : DoubleDimension => this.value == d.value
+      case _ => false
+    }
+  }
+  
+  override def <( that : DimensionType ) : Boolean = {
+    that match {
+      case d : DoubleDimension => this.value < d.value
+      case _ => false
+    }
+  }
+  
+  override def <=( that : DimensionType ) : Boolean = {
+    that match {
+      case d : DoubleDimension => this.value <= d.value
+      case _ => false
+    }
+  }
+  
+  override def >=( that : DimensionType ) : Boolean = {
+    that match {
+      case d : DoubleDimension => this.value >= d.value
+      case _ => false
+    }
+  }
+  
+  override def >( that : DimensionType ) : Boolean = {
+    that match {
+      case d : DoubleDimension => this.value > d.value
+      case _ => false
+    }
+  }
+  
+  override def toString : String = {
+    this.value.toString
+  }
+  
+  override def + (that : DimensionType) : DimensionType = {
+    that match {
+      case d : DoubleDimension => new DoubleDimension(this.attributeName, this.value + d.value)
+      case _ => throw new IllegalClassException("Illegal class in DoubleDimension")
+    }
+  }
+  
+  
+  override def * (that : DimensionType) : DimensionType = {
+    that match {
+      case d : DoubleDimension => new DoubleDimension(this.attributeName, this.value * d.value)
+      case _ => throw new IllegalClassException("Illegal class in DoubleDimension")
+    }
+  }
+  
+  /*
+  override def * (multFactor : Double) : DimensionType = {
+    new DoubleDimension(this.attributeName, this.value * multFactor)
+  }
+  * 
+  */
+  
+  override def getDissimilarityValue(that : DimensionType) : Double = {
+    that match {
+      case d : DoubleDimension => (this.value - d.value)
+      case _ => throw new IllegalClassException("Illegal class in DoubleDimension")
+    }
+  }
+  
+  def getAbs : DimensionType = {
+    new DoubleDimension(this.attributeName, abs(this.value))
+  }
+  
+  override def cloneMe : DimensionType = {
+    new DoubleDimension(this.attributeName, this.value)
+  }
+  
+  def isZero : Boolean = {
+    this.value == 0
+  }
+  
+  def getValue : Double = {
+    this.value
+  }
+  
+  override def hashCode : Int = this.value.asInstanceOf[Int]
+  
+  override def applyNeighbourhoodFactor(factor : Double) : DimensionType = {
+    new DoubleDimension(this.attributeName, this.value * factor)
+  }
+  
+  override def divideByCumulativeNeighbourhoodFactor(factor : Double) : DimensionType = {
+    new DoubleDimension(this.attributeName, this.value / factor)
+  }
+  
+  override def getUpdateValue(oldValue : DimensionType) : DimensionType = {
+    // old value not required and can be ignored
+    DoubleDimension(this.attributeName, this.value) 
+  }
+  
+  override def getFreshDimension : DimensionType = {
+    DoubleDimension(this.attributeName, this.value)
+  }
+  
+  override def avgForGrowingLayerWith(that : DimensionType) : DimensionType = {
+    that match {
+      case other : DoubleDimension => DoubleDimension(this.attributeName, (this.value + other.value) / 2)
+      case _ => throw new IllegalClassException("Illegal class in DoubleDimension")
+    }
+  }
+  
+  override def getImagePixelValue (domainValues : Array[_ <: Any] = null) : Double = {
+    val minValue = domainValues(0).asInstanceOf[DoubleDimension].value
+    val maxValue = domainValues(1).asInstanceOf[DoubleDimension].value
+    this.value * (maxValue - minValue) + minValue
+  }
+}
+
+object DoubleDimension {
+  
+  val MinValue = DoubleDimension(value = Double.MinValue)
+  val MaxValue = DoubleDimension(value = Double.MaxValue)
+  
+  val randomGenerator = new Random(Platform.currentTime)
+  
+  def apply(name : String = "", value : Double = 0.0) : DoubleDimension = {
+    new DoubleDimension(name, value)
+  }
+  
+  def apply() : DoubleDimension = {
+    new DoubleDimension("", 0.0)
+  }
+  
+  def getRandomDimensionValue(name : String, domainValues : Array[String] = null) : DoubleDimension = {
+    new DoubleDimension(name, randomGenerator.nextDouble())
+  }
+  
+  def getMax( a : DoubleDimension, b : DoubleDimension ) : DoubleDimension = {
+    if (a > b) a 
+    else b 
+    }
+  
+  def getMin( a : DoubleDimension, b : DoubleDimension) : DoubleDimension = {
+    if (a < b) a 
+    else b 
+    }
+
+}

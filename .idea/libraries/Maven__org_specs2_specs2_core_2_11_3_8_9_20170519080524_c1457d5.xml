@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.specs2:specs2-core_2.11:3.8.9-20170519080524-c1457d5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/specs2/specs2-core_2.11/3.8.9-20170519080524-c1457d5/specs2-core_2.11-3.8.9-20170519080524-c1457d5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/specs2/specs2-core_2.11/3.8.9-20170519080524-c1457d5/specs2-core_2.11-3.8.9-20170519080524-c1457d5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/specs2/specs2-core_2.11/3.8.9-20170519080524-c1457d5/specs2-core_2.11-3.8.9-20170519080524-c1457d5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
