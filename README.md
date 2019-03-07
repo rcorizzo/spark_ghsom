@@ -1,7 +1,7 @@
 ### Spark-GHSOM  
 ### Growing Hierarchical Self-Organizing Map for Large Scale Mixed Attribute Datasets  
 ###### Ameya Malondkar, Roberto Corizzo, Iluju Kiringa, Michelangelo Ceci, Nathalie Japkowicz  
-###### Information Sciences (2018)  
+###### Information Sciences  
 ------
 ### Article links:  
 ### [Sciencedirect](https://www.sciencedirect.com/science/article/pii/S0020025518309496)  
